@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AJAX Content Change</title>
+    <script>
+	function loadContent() {
+ 		fetch('new_content.html')
+        	.then(response => response.text())
+        	.then(data => {
+		document.getElementById('contentContainer').innerHTML = data;
+        		})
+       		 .catch(error => {
+            	console.error('Error fetching data:', error);
+       		 });
+			}
+</script>
+</head>
+<body>
+<h1> ajax page</h1>
+    <div id="contentContainer">
+        <!-- The content will be dynamically loaded here -->
+    </div>
+<button onclick="loadContent()">click here to change</button>
+</body>
+</html>
